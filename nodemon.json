@@ -1,0 +1,7 @@
+{
+    "watch": [
+        "service"
+    ],
+    "ext": "ts",
+    "exec": "tsx service/main.ts"
+}

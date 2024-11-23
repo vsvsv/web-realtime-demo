@@ -4,15 +4,24 @@
     "description": "Benchmarking different realtime communication methods on web",
     "author": "vsvsv",
     "license": "MIT",
+    "type": "module",
     "scripts": {
         "dev": "vite serve ./client",
         "build": "tsc && cd client && vite build",
         "preview": "tsc && cd client && vite preview",
-        "lint": "eslint"
+        "lint": "eslint",
+        "clean": "rimraf ./build tsconfig.tsbuildinfo",
+        "run-service": "nodemon"
     },
     "dependencies": {
+        "@types/express": "^5.0.0",
+        "@types/node": "^22.9.3",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.1",
+        "nodemon": "^3.1.7",
         "react": "^18.3.1",
-        "react-dom": "^18.3.1"
+        "react-dom": "^18.3.1",
+        "tsx": "^4.19.2"
     },
     "devDependencies": {
         "@eslint/js": "^9.15.0",
@@ -21,7 +30,9 @@
         "@typescript-eslint/eslint-plugin": "^8.15.0",
         "@typescript-eslint/parser": "^8.15.0",
         "eslint": "^9.15.0",
+        "eslint-plugin-react": "^7.37.2",
         "globals": "^15.12.0",
+        "rimraf": "^6.0.1",
         "sass-embedded": "^1.81.0",
         "typescript": "^5.6.3",
         "typescript-eslint": "^8.15.0",

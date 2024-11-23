@@ -13,3 +13,7 @@ const setupReactRoot = (rootComponent: React.FC, rootElementId: string) => {
 };
 
 setupReactRoot(Header, 'root');
+
+const env = (import.meta as unknown as { env: Record<string, any>}).env;
+// eslint-disable-next-line no-console
+console.log(`Will try to find service on port ${env.SERVICE_PORT}`);
