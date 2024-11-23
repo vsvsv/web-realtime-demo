@@ -1,5 +1,5 @@
 export const Header = () => (
-    <h1>
-        Realtime Web API bench
+    <h1 className="main-header my-8">
+        Realtime Web API comparsion
     </h1>
 );

@@ -24,12 +24,12 @@
         "tsx": "^4.19.2"
     },
     "devDependencies": {
-        "tailwindcss": "^3.4.15",
         "@eslint/js": "^9.15.0",
         "@types/react": "^18.3.12",
         "@types/react-dom": "^18.3.1",
         "@typescript-eslint/eslint-plugin": "^8.15.0",
         "@typescript-eslint/parser": "^8.15.0",
+        "@vitejs/plugin-react": "^4.3.3",
         "autoprefixer": "^10.4.20",
         "eslint": "^9.15.0",
         "eslint-plugin-react": "^7.37.2",
@@ -37,6 +37,7 @@
         "postcss": "^8.4.49",
         "rimraf": "^6.0.1",
         "sass-embedded": "^1.81.0",
+        "tailwindcss": "^3.4.15",
         "typescript": "^5.6.3",
         "typescript-eslint": "^8.15.0",
         "vite": "^5.4.11"

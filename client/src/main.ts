@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { Header } from './Header';
+import { Main } from './Main';
 import '../styles/globals.scss';
 
 const setupReactRoot = (rootComponent: React.FC, rootElementId: string) => {
@@ -12,7 +12,7 @@ const setupReactRoot = (rootComponent: React.FC, rootElementId: string) => {
     }
 };
 
-setupReactRoot(Header, 'root');
+setupReactRoot(Main, 'root');
 
 const env = (import.meta as unknown as { env: Record<string, any>}).env;
 // eslint-disable-next-line no-console
