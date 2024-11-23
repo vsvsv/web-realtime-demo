@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: #181818;
+  color: #cccccc;
+}
+
 .main-header {
   font-size: 3rem;
   text-align: center;
