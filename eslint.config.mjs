@@ -13,11 +13,13 @@ const customConfig = {
         'semi': ['error', 'always'],
         'comma-dangle': ['error', 'always-multiline'],
     },
+    ignores: ['build/'],
 };
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
     { files: ['**/*.{js,mjs,cjs,ts}'] },
+    { ignores: [ 'build/' ] },
     { languageOptions: { globals: globals.browser } },
     elsintJsPlugin.configs.recommended,
     ...typescriptEslint.configs.recommended,

@@ -6,8 +6,9 @@
     "license": "MIT",
     "scripts": {
         "dev": "vite serve ./client",
-        "build": "cd client && vite build",
-        "preview": "cd client && vite preview"
+        "build": "tsc && cd client && vite build",
+        "preview": "tsc && cd client && vite preview",
+        "lint": "eslint"
     },
     "dependencies": {
         "react": "^18.3.1",
