@@ -1,7 +1,5 @@
-import React from 'react';
-
 export const Header = () => (
-    <h1 className="sample-style sample-style-nested">
+    <h1>
         Realtime Web API bench
     </h1>
 );
