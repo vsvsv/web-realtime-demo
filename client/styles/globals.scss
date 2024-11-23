@@ -1,0 +1,6 @@
+.sample-style {
+  background-color: darkblue;
+  &-nested {
+    color: magenta; // web 1.0 emulation
+  }
+}
