@@ -1,7 +1,7 @@
 {
-    "name": "web-realtime-bench",
+    "name": "web-realtime-methods-comparsion",
     "version": "1.0.0",
-    "description": "Benchmarking different realtime communication methods on web",
+    "description": "Comparing different realtime communication methods for web apps",
     "author": "vsvsv",
     "license": "MIT",
     "type": "module",
