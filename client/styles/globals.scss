@@ -11,3 +11,20 @@ html {
   font-size: 3rem;
   text-align: center;
 }
+
+.signal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: greenyellow;
+  opacity: 1;
+
+  &-error {
+    background: red;
+  }
+
+  &-hidden {
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+}

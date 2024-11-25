@@ -4,42 +4,27 @@ import express, {
     type Request,
     type Response,
 } from 'express';
+import cors from 'cors';
+
+import { logInfo, generateEvent } from './common';
 
 dotenv.config();
 
 const app: Express = express();
+app.use(cors());
 const port = process.env.SERVICE_PORT || 3000;
 
-/**
- * Logs any message into console.
- */
-const logInfo = (...args: any) => {
-    // eslint-disable-next-line no-console
-    console.log('[service]', ...args);
-};
 
 app.get('/', (_req: Request, res: Response) => {
     res.send('Express server is running...');
 });
 
 /**
- * Long-polling endpoint. Tries to send updates every second.
+ * Long-polling endpoint. Tries to send updates at random time intervals.
  */
 app.get('/long-poll', (_req: Request, res: Response) => {
-    logInfo('(long-polling) Client connected, staring to send updates...');
-
-    const sendUpdate = () => {
-        const rand = Math.random();
-        const now = new Date();
-        res.json({
-            now_iso: now.toISOString(),
-            randomNumber: rand,
-        });
-    };
-    sendUpdate();
-    setTimeout(sendUpdate, 1000);
-
-    res.send('');
+    const rndDelay = Math.floor(Math.random() * 2000);
+    setTimeout(() => res.json(generateEvent()), rndDelay);
 });
 
 app.listen(port, () => {

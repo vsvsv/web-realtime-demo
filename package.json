@@ -14,8 +14,11 @@
         "run-service": "nodemon"
     },
     "dependencies": {
+        "@types/cors": "^2.8.17",
         "@types/express": "^5.0.0",
         "@types/node": "^22.9.3",
+        "classnames": "^2.5.1",
+        "cors": "^2.8.5",
         "dotenv": "^16.4.5",
         "express": "^4.21.1",
         "nodemon": "^3.1.7",
