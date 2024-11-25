@@ -27,6 +27,32 @@ app.get('/long-poll', (_req: Request, res: Response) => {
     setTimeout(() => res.json(generateEvent()), 300 + rndDelay);
 });
 
+/**
+ * Event stream (SSE) endpoint.
+ */
+app.get('/sse', (req: Request, res: Response) => {
+    res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+    });
+
+    let timerId: NodeJS.Timeout;
+    const sendEvent = () => {
+        const rndDelay = Math.floor(Math.random() * 2000);
+        timerId = setTimeout(() => {
+            res.write('event: message\n');
+            res.write(`data: ${JSON.stringify(generateEvent())}\n\n`);
+            sendEvent();
+        }, 300 + rndDelay);
+    };
+    sendEvent();
+    req.on('close', () => {
+        clearTimeout(timerId);
+    });
+
+});
+
 app.listen(port, () => {
     logInfo(`Sever is running on http://localhost:${port}`);
 });
