@@ -24,7 +24,7 @@ app.get('/', (_req: Request, res: Response) => {
  */
 app.get('/long-poll', (_req: Request, res: Response) => {
     const rndDelay = Math.floor(Math.random() * 2000);
-    setTimeout(() => res.json(generateEvent()), rndDelay);
+    setTimeout(() => res.json(generateEvent()), 300 + rndDelay);
 });
 
 app.listen(port, () => {

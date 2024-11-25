@@ -1,4 +1,4 @@
-import { Header } from './Header';
+import { Header } from './components/Header';
 import { LongPollingTimer } from './LongPollingTimer';
 import { SSETimer } from './SSETimer';
 import { WebSockerTimer } from './WebSocketTimer';
