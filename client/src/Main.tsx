@@ -6,7 +6,7 @@ import { WebSockerTimer } from './WebSocketTimer';
 export const Main = () => (
     <>
         <Header />
-        <div className='grid grid-cols-3 gap-4 mx-8'>
+        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl xl:mx-auto gap-4 px-8'>
             <LongPollingTimer />
             <WebSockerTimer />
             <SSETimer />
