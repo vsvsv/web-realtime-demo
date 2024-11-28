@@ -12,9 +12,9 @@ export const IndicatorDot = ({
     danger = false,
 }: IndicatorDotProps) => {
     const dotClasses = cn({
-        'signal-dot': true,
-        'signal-dot-hidden': hidden,
-        'signal-dot-error': danger,
+        'indicator-dot': true,
+        'indicator-dot-hidden': hidden,
+        'indicator-dot-error': danger,
         ...(className ? { [className]: true } : {}),
     });
     return (

@@ -4,14 +4,17 @@ import express, {
     type Request,
     type Response,
 } from 'express';
+import { createServer } from 'http';
 import cors from 'cors';
 
 import { logInfo, generateEvent } from './common';
+import { registerRawWebsocketEndpoint } from './raw-websocket';
 
 dotenv.config();
 
 const app: Express = express();
 app.use(cors());
+const httpServer = createServer(app);
 const port = process.env.SERVICE_PORT || 3000;
 
 
@@ -24,7 +27,7 @@ app.get('/', (_req: Request, res: Response) => {
  */
 app.get('/long-poll', (_req: Request, res: Response) => {
     const rndDelay = Math.floor(Math.random() * 2000);
-    setTimeout(() => res.json(generateEvent()), 300 + rndDelay);
+    setTimeout(() => res.json(generateEvent('long-polling')), 300 + rndDelay);
 });
 
 /**
@@ -42,7 +45,7 @@ app.get('/sse', (req: Request, res: Response) => {
         const rndDelay = Math.floor(Math.random() * 2000);
         timerId = setTimeout(() => {
             res.write('event: message\n');
-            res.write(`data: ${JSON.stringify(generateEvent())}\n\n`);
+            res.write(`data: ${JSON.stringify(generateEvent('server-sent-events'))}\n\n`);
             sendEvent();
         }, 300 + rndDelay);
     };
@@ -53,6 +56,9 @@ app.get('/sse', (req: Request, res: Response) => {
 
 });
 
-app.listen(port, () => {
+// Raw WebSocket endpoint (using 'ws' library)
+registerRawWebsocketEndpoint(httpServer, '/raw-ws');
+
+httpServer.listen(port, () => {
     logInfo(`Sever is running on http://localhost:${port}`);
 });

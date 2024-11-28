@@ -36,7 +36,6 @@ export const LongPollingTimer = () => {
                     <pre className="max-w-md p-2 px-4 rounded bg-slate-300 font-mono text-slate-200 overflow-scroll">
                         {JSON.stringify(query.data, undefined, '    ')}
                     </pre>
-
                 )}
                 {query.error && (
                     <pre className="max-w-md p-2 px-4 rounded bg-slate-300 font-mono text-red-700 overflow-scroll">

@@ -1,5 +1,5 @@
 {
-    "name": "web-realtime-methods-comparsion",
+    "name": "web-realtime-bench",
     "version": "1.0.0",
     "description": "Comparing different realtime communication methods for web apps",
     "author": "vsvsv",
@@ -24,12 +24,14 @@
         "nodemon": "^3.1.7",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "tsx": "^4.19.2"
+        "tsx": "^4.19.2",
+        "ws": "^8.18.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.15.0",
         "@types/react": "^18.3.12",
         "@types/react-dom": "^18.3.1",
+        "@types/ws": "^8.5.13",
         "@typescript-eslint/eslint-plugin": "^8.15.0",
         "@typescript-eslint/parser": "^8.15.0",
         "@vitejs/plugin-react": "^4.3.3",
