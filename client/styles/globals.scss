@@ -1,3 +1,4 @@
+@config "../../tailwind.config.ts"
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +6,7 @@
 html {
   background-color: #181818;
   color: #cccccc;
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 .main-header {
@@ -27,6 +29,10 @@ html {
     opacity: 0;
     transition: opacity 300ms ease;
   }
+}
+
+.code-box {
+  @apply rounded bg-neutral-800 font-mono text-slate-200 overflow-scroll;
 }
 
 

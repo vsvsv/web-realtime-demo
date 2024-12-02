@@ -3,11 +3,18 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import reactPlugin from '@vitejs/plugin-react';
 
-export default () => {
+
+export default defineConfig(({ command }) => {
     let envVarsFromFile: Record<string, any> = {};
     try {
-        const envVarsBuf = fs.readFileSync('.env');
-        envVarsFromFile = dotenv.parse(envVarsBuf);
+        if (command === 'build') {
+            const envVarsBuf = fs.readFileSync('../.env');
+            envVarsFromFile = dotenv.parse(envVarsBuf);
+        } else { // serve
+            const envVarsBuf = fs.readFileSync('.env');
+            envVarsFromFile = dotenv.parse(envVarsBuf);
+
+        }
     } catch {
         // eslint-disable-next-line no-console
         console.error('Cannot find ".env" file in the root of the project');
@@ -16,7 +23,7 @@ export default () => {
         ...process.env,
         VITE_SERVICE_PORT: envVarsFromFile.SERVICE_PORT,
     };
-    return defineConfig({
+    return {
         root: './',
         plugins: [reactPlugin()],
         build: {
@@ -28,5 +35,5 @@ export default () => {
                 },
             },
         },
-    });
-};
+    };
+});

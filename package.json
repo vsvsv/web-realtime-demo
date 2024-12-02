@@ -11,7 +11,8 @@
         "preview": "tsc && cd client && vite preview",
         "lint": "eslint",
         "clean": "rimraf ./build tsconfig.tsbuildinfo",
-        "run-service": "nodemon"
+        "run-service": "nodemon",
+        "bootstrap": "yarn clean && yarn build && yarn run-service"
     },
     "dependencies": {
         "@types/cors": "^2.8.17",

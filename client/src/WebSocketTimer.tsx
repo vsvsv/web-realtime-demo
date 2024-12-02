@@ -22,7 +22,7 @@ export const WebSocketTimer = () => {
         }
     }, [query]);
     return (
-        <div className="border rounded border-slate-500">
+        <div className="border border-solid rounded border-neutral-500">
             <div className="flex justify-center items-center mb-4 mt-2">
                 <h3 className="text-lg text-center border-b border-slate-500">WebSocket (Raw)</h3>
                 <IndicatorDot
@@ -33,12 +33,12 @@ export const WebSocketTimer = () => {
             </div>
             <div className="m-4 flex justify-center">
                 {query.data && (
-                    <pre className="max-w-md p-2 px-4 rounded bg-slate-300 font-mono text-slate-200 overflow-scroll">
+                    <pre className="max-w-md p-2 px-4 code-box">
                         {JSON.stringify(query.data, undefined, '    ')}
                     </pre>
                 )}
                 {query.error && (
-                    <pre className="max-w-md p-2 px-4 rounded bg-slate-300 font-mono text-red-700 overflow-scroll">
+                    <pre className="max-w-md p-2 px-4 code-box">
                         {query.error.message}
                     </pre>
                 )}

@@ -5,11 +5,15 @@ import express, {
     type Response,
 } from 'express';
 import { createServer } from 'http';
+import { fileURLToPath } from 'url';
+import path from 'path';
 import cors from 'cors';
 
 import { logInfo, generateEvent } from './common';
 import { registerRawWebsocketEndpoint } from './raw-websocket';
 import { registerSocketIOEndpoint } from './socket-io';
+
+const WORK_DIR = path.dirname(fileURLToPath(import.meta.url));
 
 dotenv.config();
 
@@ -18,10 +22,7 @@ app.use(cors());
 const httpServer = createServer(app);
 const port = process.env.SERVICE_PORT || 3000;
 
-
-app.get('/', (_req: Request, res: Response) => {
-    res.send('Express server is running...');
-});
+app.use('/', express.static(path.join(WORK_DIR, '../build/client')));
 
 /**
  * Long-polling endpoint. Tries to send updates at random time intervals.
