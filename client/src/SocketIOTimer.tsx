@@ -4,8 +4,8 @@ import {
     useState,
 } from 'react';
 
-import { IndicatorDot } from './components/IndicatorDot';
 import { Preloader } from './components/Preloader';
+import { Card } from './components/Card';
 import { useSocketIOQuery } from './scripts/use-socket-io-query';
 
 export const SocketIOTimer = () => {
@@ -22,32 +22,26 @@ export const SocketIOTimer = () => {
         }
     }, [query]);
     return (
-        <div className="border border-solid rounded border-neutral-500">
-            <div className="flex justify-center items-center mb-4 mt-2">
-                <h3 className="text-lg text-center border-b border-slate-500">Socket.io</h3>
-                <IndicatorDot
-                    className="ml-2 mt-1"
-                    danger={!!query.error}
-                    hidden={!dotShown && !query.error}
-                />
-            </div>
-            <div className="m-4 flex justify-center">
-                {query.data && (
-                    <pre className="max-w-md p-2 px-4 code-box">
-                        {JSON.stringify(query.data, undefined, '    ')}
-                    </pre>
-                )}
-                {query.error && (
-                    <pre className="max-w-md p-2 px-4 code-box">
-                        {query.error.message}
-                    </pre>
-                )}
-                {query.loading && !(query.data || query.error) && (
-                    <div className='flex justify-center'>
-                        <Preloader />
-                    </div>
-                )}
-            </div>
-        </div>
+        <Card
+            title="Socket.io"
+            indicatorDotHidden={!dotShown && !query.error}
+            indicatorDotDanger={!!query.error}
+        >
+            {query.data && (
+                <pre className="max-w-md p-2 px-4 code-box">
+                    {JSON.stringify(query.data, undefined, '    ')}
+                </pre>
+            )}
+            {query.error && (
+                <pre className="max-w-md p-2 px-4 code-box">
+                    {query.error.message}
+                </pre>
+            )}
+            {query.loading && !(query.data || query.error) && (
+                <div className='flex justify-center'>
+                    <Preloader />
+                </div>
+            )}
+        </Card>
     );
 };
