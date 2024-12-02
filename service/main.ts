@@ -9,6 +9,7 @@ import cors from 'cors';
 
 import { logInfo, generateEvent } from './common';
 import { registerRawWebsocketEndpoint } from './raw-websocket';
+import { registerSocketIOEndpoint } from './socket-io';
 
 dotenv.config();
 
@@ -58,6 +59,9 @@ app.get('/sse', (req: Request, res: Response) => {
 
 // Raw WebSocket endpoint (using 'ws' library)
 registerRawWebsocketEndpoint(httpServer, '/raw-ws');
+
+// Socket.io endpoint
+registerSocketIOEndpoint(httpServer, '/socket-io');
 
 httpServer.listen(port, () => {
     logInfo(`Sever is running on http://localhost:${port}`);

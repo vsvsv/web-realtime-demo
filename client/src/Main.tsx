@@ -2,6 +2,7 @@ import { Header } from './components/Header';
 import { LongPollingTimer } from './LongPollingTimer';
 import { SSETimer } from './SSETimer';
 import { WebSocketTimer } from './WebSocketTimer';
+import { SocketIOTimer } from './SocketIOTimer';
 
 export const Main = () => (
     <>
@@ -10,6 +11,7 @@ export const Main = () => (
             <LongPollingTimer />
             <SSETimer />
             <WebSocketTimer />
+            <SocketIOTimer />
         </div>
     </>
 );

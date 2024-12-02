@@ -90,6 +90,11 @@ const customConfig = {
         'no-script-url': 0,
     },
     ignores: ['build/'],
+    settings: {
+        react: {
+            version: 'detect',
+        },
+    },
 };
 
 /** @type {import('eslint').Linter.Config[]} */
