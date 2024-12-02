@@ -3,6 +3,8 @@
 This repository contains an example application which implements various realtime communication methods 
 for the browser (React) and Node.js using TypeScript.
 
+![Screenshot](/doc/screenshot_1.png?raw=true)
+
 Currently implemented endpoints include all popular realtime communication protocols
 (which do not require an encrypted HTTP or HTTP3):
 
